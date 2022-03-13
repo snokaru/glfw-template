@@ -25,7 +25,7 @@ int main() {
     init();
     const int SCREEN_WIDTH = 800;
     const int SCREEN_HEIGHT = 800;
-    Window* window = new Window(SCREEN_WIDTH, SCREEN_HEIGHT, "Learn OpenGL");
+    Window* window = new Window(SCREEN_WIDTH, SCREEN_HEIGHT, "Chess Board");
 
     const int square_width = SCREEN_WIDTH / 8;
     const int square_height = SCREEN_HEIGHT / 8;

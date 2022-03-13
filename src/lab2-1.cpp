@@ -25,7 +25,7 @@ int main() {
     init();
     const int SCREEN_WIDTH = 800;
     const int SCREEN_HEIGHT = 600;
-    Window* window = new Window(SCREEN_WIDTH, SCREEN_HEIGHT, "Learn OpenGL");
+    Window* window = new Window(SCREEN_WIDTH, SCREEN_HEIGHT, "House");
     Rectangle house(Vector2f(200, 200), Vector2f(600, 500), Color(0, 0, 255));
     Triangle roof(Vector2f(200, 200), Vector2f(600, 200), Vector2f(400, 100), Color(255, 0, 0));
     Rectangle door(Vector2f(300, 350), Vector2f(400, 500), Color(0, 255, 0));
