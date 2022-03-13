@@ -1,4 +1,4 @@
 cd build
-cmake ..
+cmake --build .. --target $1
 make
-./src/OpenGLTest
+./src/$1

@@ -1,11 +1,10 @@
-class Vector2f {
-private:
-  float x;
-  float y;
-public:
-  Vector2f(float x, float y);
-  float getX();
-  float getY();
-  void  setX(float x);
-  void  setY(float y);
+#ifndef _VECTOR2F_HPP
+#define _VECTOR2F_HPP
+
+struct Vector2f {
+    float x;
+    float y;
+    Vector2f(float x, float y): x(x), y(y) {};
 };
+
+#endif
