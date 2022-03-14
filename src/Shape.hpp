@@ -63,6 +63,9 @@ public:
             Triangle triangle(center, Vector2f(x1, y1), Vector2f(x2, y2), color); triangle.draw(window);
         }
     }
+    void set_center(Vector2f center) {
+        this->center = center;
+    }
 private:
     Vector2f center;
     int radius;
