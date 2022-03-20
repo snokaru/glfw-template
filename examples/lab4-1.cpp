@@ -27,18 +27,23 @@ int main() {
     init();
     const int SCREEN_WIDTH = 700;
     const int SCREEN_HEIGHT = 700;
-    Window* window = new Window(SCREEN_WIDTH, SCREEN_HEIGHT, "House");
-    Texture2D texture("./container.jpg");
-    std::cout << "loaded texture\n";
-    Rectangle house(Vector2f(200, 200), Vector2f(600, 500), Color(0, 0, 255));
-    Sprite wood_sprite(texture);
+    Window* window = new Window(SCREEN_WIDTH, SCREEN_HEIGHT, "Textures");
+
+    Texture2D container_texture("./container.jpg");
+    Texture2D wood_texture("./wood.jpg");
+
+    Sprite wood_sprite(wood_texture);
     wood_sprite.set_position(Vector2f(100, 100));
+
+    Sprite container_sprite(container_texture);
+    container_sprite.set_position(Vector2f(500, 100));
 
     while (!window->should_close()) {
         window->clear(Color(255, 255, 255));
 
         // house.draw(window);
         wood_sprite.draw();
+        container_sprite.draw();
         window->display();
     }
 

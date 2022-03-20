@@ -11,6 +11,7 @@ public:
     void set_position(Vector2f position) {
         this->position = position;
     };
+    const Texture2D& get_texture();
 private:
     const Texture2D& texture;
     Vector2f position;

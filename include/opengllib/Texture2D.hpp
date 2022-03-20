@@ -2,6 +2,8 @@
 #define _TEXTURE2D_HPP
 
 #include <string>
+#include <opengllib/Color.hpp>
+#include <opengllib/Vector2f.hpp>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -9,9 +11,13 @@
 class Texture2D {
 public:
     Texture2D(std::string filename, bool mipmapped=false);
+    Texture2D(int width, int height);
     void bind() const;
-    int getWidth() const { return width; }
-    int getHeight() const { return height; }
+    void update(Color* pixels);
+    void update(const Texture2D& other_texture, Vector2f position);
+    unsigned char* get_raw_data() const { return data; }
+    int get_width() const { return width; }
+    int get_height() const { return height; }
     ~Texture2D();
 private:
     std::string filename;

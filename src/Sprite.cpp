@@ -8,8 +8,7 @@ Sprite::Sprite(const Texture2D& texture)
 
 void Sprite::draw() {
     texture.bind();
-    int width = texture.getWidth(), height = texture.getHeight();
-    std::cout << "drawing sprite at (" << position.x << ", " << position.y << ")\n";
+    int width = texture.get_width(), height = texture.get_height();
     glBegin(GL_QUADS);
         // Lower left corner.
         glTexCoord2f(0, 1);
@@ -29,3 +28,6 @@ void Sprite::draw() {
     glEnd();
 }
 
+const Texture2D& Sprite::get_texture() {
+    return texture;
+}

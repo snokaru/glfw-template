@@ -6,6 +6,7 @@
 class Color {
 public:
     Color(int r, int g, int b, int a = 255) : r(r), g(g), b(b), a(a) {};
+    Color(): r(0), g(0), b(0), a(255) {};
     float gl_r() {
         return (1 / 255.0) * r;
     }
@@ -18,10 +19,7 @@ public:
     float gl_a() {
         return (1 / 255.0) * a;
     }
-
-private:
-    int r, g, b, a;
-    
+int r, g, b, a;
 };
 
 #endif
