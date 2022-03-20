@@ -57,12 +57,13 @@ Texture2D::Texture2D(int width, int height)
 
 void Texture2D::update(Color* pixels) {
     this->bind();
-    for (int i = 0, j = 0; i < width * height * 3; i+=3, j++) {
+    for (int i = 0, j = 0; i < width * height * 4; i+=4, j++) {
         data[i] = pixels[j].r;
         data[i + 1] = pixels[j].g;
         data[i + 2] = pixels[j].b;
+        data[i + 3] = pixels[j].a;
     }
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 }
 
 void Texture2D::update(const Texture2D& other_texture, Vector2f position) {
