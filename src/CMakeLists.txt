@@ -1,8 +1,7 @@
-set(SRC_FILES "Window.cpp")
-set(THIRD_PARTY_LIBRARIES glfw glad stb_image)
+set(SRC_FILES "Window.cpp" "Texture2D.cpp" "Sprite.cpp")
+set(THIRD_PARTY_LIBRARIES stb_image glfw glad)
 
-add_executable("lab3-1" "lab3-1.cpp" ${SRC_FILES})
-add_executable("lab3-2" "lab3-2.cpp" ${SRC_FILES})
-
-target_link_libraries("lab3-1" PUBLIC ${THIRD_PARTY_LIBRARIES})
-target_link_libraries("lab3-2" PUBLIC ${THIRD_PARTY_LIBRARIES})
+add_library(opengllib ${SRC_FILES})
+target_include_directories(opengllib PUBLIC ../include)
+target_link_libraries(opengllib PUBLIC ${THIRD_PARTY_LIBRARIES})
+target_compile_definitions(opengllib PRIVATE STB_IMAGE_IMPLEMENTATION)

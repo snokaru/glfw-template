@@ -2,9 +2,9 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include "Color.hpp"
-#include "Vector2f.hpp"
-#include "Window.hpp"
+#include <opengllib/Color.hpp>
+#include <opengllib/Vector2f.hpp>
+#include <opengllib/Window.hpp>
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {

@@ -7,3 +7,4 @@ find_package(glfw3 3.3.6 REQUIRED)
 
 add_subdirectory(extern)
 add_subdirectory(src)
+add_subdirectory(examples)

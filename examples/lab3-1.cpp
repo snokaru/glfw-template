@@ -6,12 +6,11 @@
 #include <cmath>
 #include <cstdlib>
 
-#include "Color.hpp"
-#include "Window.hpp"
-#include "Vector2f.hpp"
-#include "Vector3f.hpp"
-#include "Shape.hpp"
-
+#include <opengllib/Color.hpp>
+#include <opengllib/Window.hpp>
+#include <opengllib/Vector2f.hpp>
+#include <opengllib/Vector3f.hpp>
+#include <opengllib/Shape.hpp>
 
 void init() {
     glfwInit();
