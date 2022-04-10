@@ -5,8 +5,8 @@
 #include <opengllib/Color.hpp>
 #include <opengllib/Vector2f.hpp>
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include <OpenGL/gl.h>
+#include <GLUT/glut.h>
 
 class Texture2D {
 public:

@@ -1,50 +1,57 @@
-/*
- *  As a first example of using OpenGL in C, this program draws the
- *  classic red/green/blue triangle.  It uses the default OpenGL
- *  coordinate system, in which x, y, and z are limited to the range
- *  -1 to 1, and the positive z-axis points into the screen.  Note
- *  that this coordinate system is hardly ever used in practice.
- *
- *  When compiling this program, you must link it to the OpenGL library
- *  and to the glut library. For example, in Linux using the gcc compiler, 
- *  it can be compiled with the command:
- *
- *          gcc -o first-triangle first-triangle.c -lGL -lglut
- */
- 
-#include <OpenGL/gl.h>   // freeglut.h might be a better alternative, if available.
+#include <OpenGL/gl.h>
 #include <GLUT/glut.h>
+#include <opengllib/Texture2D.hpp>
 
-void display() {  // Display function will draw the image.
+
+void display() {  
+    glEnable(GL_TEXTURE);
+    glEnable(GL_TEXTURE_GEN_S);
+    glEnable(GL_TEXTURE_GEN_T);
  
-    glClearColor( 0, 0, 0, 1 );  // (In fact, this is the default.)
-    glClear( GL_COLOR_BUFFER_BIT );
-    
-    glBegin(GL_TRIANGLES);
-    glColor3f( 1, 0, 0 ); // red
-    glVertex2f( -0.8, -0.8 );
-    glColor3f( 0, 1, 0 ); // green
-    glVertex2f( 0.8, -0.8 );
-    glColor3f( 0, 0, 1 ); // blue
-    glVertex2f( 0, 0.9 );
-    glEnd(); 
-    
-    glutSwapBuffers(); // Required to copy color buffer onto the screen.
- 
+    glClearColor(0, 0, 0, 0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+
+    Texture2D texture = Texture2D("wood.jpg");
+    texture.bind();
+
+    GLUquadric* sun = gluNewQuadric();
+    gluQuadricTexture(sun, true);
+    gluSphere(sun, 0.2, 64, 64);
+    gluDeleteQuadric(sun);
+
+    glFlush();
 }
 
+void reshape(int width, int height) {
+    glViewport(0, 0, width, height);
+    double ratio = (double) width / (double) height;
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(38, ratio, 0.1, 100);
+    glMatrixMode(GL_MODELVIEW);
+}
 
-int main( int argc, char** argv ) {  // Initialize GLUT and 
+void init() {
+    glClearColor(0, 0, 0, 0);
+    glMatrixMode(GL_MODELVIEW);
+    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+    glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+}
+
+int main(int argc, char** argv) {
 
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE);    // Use single color buffer and no depth buffer.
-    glutInitWindowSize(500,500);         // Size of display area, in pixels.
-    glutInitWindowPosition(100,100);     // Location of window in screen coordinates.
-    glutCreateWindow("GL RGB Triangle"); // Parameter is window title.
-    glutDisplayFunc(display);            // Called when the window needs to be redrawn.
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitWindowSize(800, 600);     
+    glutInitWindowPosition(100, 100); 
+    glutCreateWindow("GL RGB Triangle");
+    init();
+    glutDisplayFunc(display);          
+    glutReshapeFunc(reshape);
     
-    glutMainLoop(); // Run the event loop!  This function does not return.
-                    // Program ends when user closes the window.
+    glutMainLoop();
+                   
     return 0;
 
 }
