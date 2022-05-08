@@ -22,7 +22,7 @@ Texture2D::Texture2D(std::string filename, bool mipmapped)
 
     data = stbi_load(filename.c_str(), &width, &height, &number_of_channels, 0);
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
     glEnable(GL_TEXTURE_2D);
 }
 
@@ -51,7 +51,7 @@ Texture2D::Texture2D(int width, int height)
         data[i] = 0;
     }
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
     glEnable(GL_TEXTURE_2D);
 }
 

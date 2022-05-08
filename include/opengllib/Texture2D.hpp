@@ -19,6 +19,12 @@ public:
     int get_width() const { return width; }
     int get_height() const { return height; }
     ~Texture2D();
+    void enable() {
+      glEnable(GL_TEXTURE); 
+    }
+    void disable() {
+      glDisable(GL_TEXTURE); 
+    }
 private:
     std::string filename;
     bool mipmapped;
