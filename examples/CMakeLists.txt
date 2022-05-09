@@ -11,3 +11,7 @@ set(GLUT_LIBRARIES opengllib ${OpenGL} ${GLUT})
 add_executable(lab11 lab11.cpp)
 target_link_libraries(lab11 PUBLIC ${GLUT_LIBRARIES})
 target_compile_definitions(lab11 PUBLIC GL_SILENCE_DEPRECATION)
+
+add_executable(lab11-2 lab11-2.cpp)
+target_link_libraries(lab11-2 PUBLIC ${GLUT_LIBRARIES})
+target_compile_definitions(lab11-2 PUBLIC GL_SILENCE_DEPRECATION)

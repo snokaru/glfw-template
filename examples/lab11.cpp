@@ -10,7 +10,7 @@
 const int width = 800;
 const int height = 600;
 const int PARTICLES_COUNT = 5000;
-int cam_x = -10, cam_y = 0, cam_z = 10;
+int cam_x = -10, cam_y = 0, cam_z = 100;
 
 void display();
 void init();
