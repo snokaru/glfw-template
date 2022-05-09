@@ -12,7 +12,7 @@
 const int width = 800;
 const int height = 600;
 const int SPHERES_COUNT = 50;
-int cam_x = 25, cam_y = 0, cam_z = 20;
+int cam_x = 60, cam_y = 0, cam_z = 80;
 
 
 std::ostream& operator<<(std::ostream& out, const Vector3f& v) {
@@ -258,8 +258,8 @@ void init()
     glClearDepth(1);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
+    // glEnable(GL_LIGHTING);
+    // glEnable(GL_LIGHT0);
     GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
     GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
     GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
